@@ -1,2 +1,34 @@
-<input type="file" id="file" name="file"/>
-<button ng-click="add()">Add</button>
+<!--<input type="file" id="file" name="file"/>
+<button ng-click="add()">Add</button>-->
+
+<p>
+  Allowed extensions: <code><b>.jpg</b>, <b>.png</b></code>
+</p>
+
+<label class="btn btn-default btn-file">
+  Choose Image 
+  <input type="file"
+  ngFileSelect
+  [options]="options"
+  [events]="inputUploadEvents"
+  (onUpload)="handleUpload($event)"
+  (onPreviewData)="handlePreviewData($event)"
+  (beforeUpload)="beforeUpload($event)"
+  class="hidden"/>
+</label>
+
+<div>
+  <button type="button" class="btn btn-primary" (click)="startUpload()">Upload</button>
+</div>
+
+<div *ngIf="response">
+  <pre><code>{{ response | json }}</code></pre>
+</div>
+
+<div *ngIf="errorMessage">
+  <code>{{ errorMessage }}</code>
+</div>
+
+<div *ngIf="previewData && !response">
+  <img [src]="previewData">
+</div>

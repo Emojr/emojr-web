@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { NgUploaderModule } from 'ngx-uploader';
+
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
@@ -18,7 +20,8 @@ import { UploadComponent } from './upload/upload.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    NgUploaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
